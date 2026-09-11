@@ -1,4 +1,9 @@
 
+
+# Autores
+> Yaiza Angelina Sanchez Dueñez - 2220232034
+> Nicolas Gonzalez Ortiz - 2220261089
+
 # Install the viraual environment
 > python -m venv .venv
 
