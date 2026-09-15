@@ -10,8 +10,8 @@ def train_tabular(X_train, y_train, X_test, y_test, epochs=20):
     loader = DataLoader(dataset, batch_size=32, shuffle=True)
 
     model = TabularNet(input_dim=X_train.shape[1])
-    # loss_fn = nn.BCELoss() # for binary classification with sigmoid
-    loss_fn = nn.CrossEntropyLoss() # for multi-class classification with softmax
+    loss_fn = nn.BCELoss() # for binary classification with sigmoid
+    #loss_fn = nn.CrossEntropyLoss() # for multi-class classification with softmax
     opt = optim.Adam(model.parameters(), lr=1e-3)
 
     for ep in range(epochs):

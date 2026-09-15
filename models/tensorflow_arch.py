@@ -4,15 +4,16 @@ from tensorflow import keras
 from tensorflow.keras import layers
 
 def build_tabular_model(input_dim=30):
-    
     model = keras.Sequential([
         layers.Input(shape=(input_dim,)),  # Primera capa Input
+        layers.Dense(64, activation="relu"), # capas ocultas
         layers.Dense(32, activation="relu"),
         layers.Dense(16, activation="relu"),
-        layers.Dense(3, activation="sigmoid")
+        layers.Dense(1, activation="sigmoid") # Capa de salida
     ])
     model.compile(optimizer="adam",
-                  loss="sparse_categorical_crossentropy",#tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                  #loss="sparse_categorical_crossentropy",#tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                  loss="binary_crossentropy",
                   metrics=["accuracy"])
     return model
 

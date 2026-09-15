@@ -6,6 +6,8 @@ from utils.data import load_and_split, prepare_tabular_data
 from models import trainer_tf, trainer_pt
 import pandas as pd
 from io import StringIO
+import os
+
 app = FastAPI()
 
 import logging
@@ -47,6 +49,7 @@ async def train_model(
     epochs: int = Form(20),
     target_column: str = Form(...)  
 ):
+    os.makedirs("uploads", exist_ok=True)
     temp_path = Path("uploads") / csv_file.filename
     with open(temp_path, "wb") as f:
         f.write(await csv_file.read())

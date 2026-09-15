@@ -3,10 +3,12 @@ import torch
 import torch.nn as nn
 
 class TabularNet(nn.Module):
-    def __init__(self, input_dim=30, n_classes=2):
+    def __init__(self, input_dim=30, n_classes=1):
         super().__init__()
         self.net = nn.Sequential(
-            nn.Linear(input_dim, 32),
+            nn.Linear(input_dim, 64),
+            nn.ReLU(),
+            nn.Linear(64,32),
             nn.ReLU(),
             nn.Linear(32,16),
             nn.ReLU(),
